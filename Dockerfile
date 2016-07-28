@@ -8,3 +8,4 @@ RUN npm install -g http-server \
  && unzip /tmp/swagger-editor.zip \
  && rm -f /tmp/swagger-editor.zip
 ADD etc/supervisord.d/swagger-editor.ini /etc/supervisord.d/
+ADD opt/swagger-editor/spec-files/ /opt/swagger-editor/spec-files/
