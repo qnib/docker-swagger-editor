@@ -1,31 +1,8 @@
-version: '2'
+version: '3'
 services:
-  swagger-consul:
-    image: qnib/alpn-consul
-    hostname: swagger-consul
-    container_name: swagger-consul
-    networks:
-     - swagger
-    ports:
-     - "8500:8500"
-    environment:
-     - DC_NAME=swagger
-     - CONSUL_BOOTSTRAP_EXPECT=1
-
   swagger-editor:
     image: qnib/swagger-editor
     hostname: swagger-editor
     container_name: swagger-editor
-    networks:
-     - swagger
-    environment:
-     - DC_NAME=swagger
-     - CONSUL_CLUSTER_IPS=swagger-consul
     ports:
      - "8080:8080"
-    dns:
-     - swagger-editor
-     - 213.73.91.35
-
-networks:
-    swagger:
